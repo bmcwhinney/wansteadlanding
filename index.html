@@ -458,6 +458,11 @@
     font-size:1.05rem;
     color:rgba(43,18,29,0.78);
   }
+  .section-head a{
+    color:inherit;
+    font-weight:700;
+    text-underline-offset:3px;
+  }
 
   /* ---------- NOTICEBOARD ---------- */
   .board{
@@ -529,6 +534,54 @@
     text-decoration:underline;
     text-underline-offset:4px;
     font-weight:700;
+  }
+  .flyer h3 a{
+    color:inherit;
+    text-decoration:underline;
+    text-underline-offset:3px;
+  }
+  .partners{
+    margin-top:48px;
+  }
+  .partners h3{
+    font-family:'Work Sans', sans-serif;
+    font-size:1.05rem;
+    font-weight:800;
+    text-transform:none;
+    letter-spacing:0;
+    margin-bottom:16px;
+  }
+  .partners ul{
+    list-style:none;
+    margin:0;
+    padding:0;
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+  .partners a{
+    display:inline-block;
+    background:var(--paper);
+    color:var(--ink);
+    border:2.5px solid var(--ink);
+    border-radius:999px;
+    padding:9px 16px;
+    font-weight:700;
+    font-size:0.9rem;
+    text-decoration:none;
+  }
+  .partners a:hover{
+    background:var(--ink);
+    color:var(--paper);
+  }
+  .house-rules{
+    margin-top:22px;
+    padding:16px 18px;
+    background:var(--paper);
+    border:2.5px dashed var(--ink);
+    border-radius:12px;
+    font-size:0.98rem;
+    font-weight:600;
   }
 
   /* ---------- SPACES ---------- */
@@ -746,13 +799,13 @@
       <div class="section-head reveal">
         <span class="eyebrow">What's already pinned up</span>
         <h2>The building keeps good company</h2>
-        <p>Its resident act is The Wanstead Curtain, Wanstead Fringe's theatre and cinema project, built inside the old nave. Alongside it, the building's other spaces are made for the kind of groups below. There's room on the board for you too.</p>
+        <p>Its resident act is <a href="https://wansteadfringe.org/" target="_blank" rel="noopener noreferrer">The Wanstead Curtain</a>, Wanstead Fringe's theatre and cinema project, built inside the old church hall. Alongside it, the building's other spaces are made for the kind of groups below. There's room on the board for you too.</p>
       </div>
       <div class="flyers">
         <article class="flyer reveal">
           <span class="pin" aria-hidden="true">🎭</span>
           <span class="tag">Resident company</span>
-          <h3>The Wanstead Curtain</h3>
+          <h3><a href="https://wansteadfringe.org/" target="_blank" rel="noopener noreferrer">The Wanstead Curtain</a></h3>
           <p>Our best-known regular. Wanstead Fringe transformed the main hall into a proper stage for plays, screenings and Wanstead Kinema nights.</p>
         </article>
         <article class="flyer reveal">
@@ -782,6 +835,16 @@
           <a href="#contact">Get in touch ↓</a>
         </article>
       </div>
+      <div class="partners reveal">
+        <h3>Regulars in the building</h3>
+        <ul>
+          <li><a href="https://wansteadfringe.org/" target="_blank" rel="noopener noreferrer">The Wanstead Curtain</a></li>
+          <li><a href="https://www.questlearn.co.uk/" target="_blank" rel="noopener noreferrer">QuestLearn</a></li>
+          <li><a href="https://www.compassionatefunerals.co.uk/events/" target="_blank" rel="noopener noreferrer">Dead Good Film</a></li>
+          <li><a href="https://www.theoasischurch.co.uk/" target="_blank" rel="noopener noreferrer">Oasis Seventh-day Adventist Church</a></li>
+          <li><a href="https://www.highpraisesministry.com/" target="_blank" rel="noopener noreferrer">High Praise Ministries</a></li>
+        </ul>
+      </div>
     </div>
   </section>
 
@@ -790,8 +853,9 @@
       <div class="reveal">
         <span class="eyebrow" style="color:var(--curtain-dark)">The spaces</span>
         <h2 style="font-size:clamp(1.8rem,4vw,2.8rem); margin-top:10px;">Not just one hall</h2>
-        <p>There's more than one room under this roof. The main hall carries the bones of the old church nave: high ceilings, an open floor, and a stage end that's already rigged for performance thanks to its theatre conversion. Beyond it, the building holds further rooms of different sizes, plus a kitchen, so you can book the whole premises for something big, or just the right-sized room for something small.</p>
+        <p>There's more than one room under this roof. The main hall has high ceilings, an open floor, and a stage end that's already rigged for performance thanks to its theatre conversion. Beyond it, the building holds further rooms of different sizes, plus a kitchen, so you can book the whole premises for something big, or just the right-sized room for something small.</p>
         <p>Exact layouts, capacities and rates for each space are available on request. Every hire starts as a conversation, not a price list. Tell us what you're planning and we'll tell you what fits.</p>
+        <p class="house-rules">Please note: Wanstead Methodist Church is a no-alcohol venue, and we're unable to take birthday party bookings at present.</p>
       </div>
       <ul class="feature-list reveal">
         <li>
@@ -812,7 +876,7 @@
         </li>
         <li>
           <span class="ico">❓</span>
-          <div>Tell us what you need and we'll match you to the right space, or the whole building</div>
+          <div>Tell us what you need and we'll match you to the right space, or the whole building.</div>
         </li>
       </ul>
     </div>
@@ -862,6 +926,11 @@
             <li>Roughly how many people</li>
             <li>Whether it's a one-off or a regular slot</li>
             <li>Your preferred days &amp; times</li>
+          </ul>
+          <h3 style="margin-top:20px;">A couple of things to know</h3>
+          <ul>
+            <li>This is a no-alcohol venue</li>
+            <li>We're unable to take birthday party bookings at present</li>
           </ul>
           <h3 style="margin-top:20px;">We'll get back to you with availability, a walk-through and a quote.</h3>
         </div>
