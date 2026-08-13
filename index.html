@@ -120,7 +120,6 @@
 
   html, body{
     max-width:100%;
-    overflow-x:hidden;
   }
 
   body{
@@ -198,10 +197,20 @@
 
   /* ---------- NAV ---------- */
   header.site-nav{
-    position:sticky; top:0; z-index:60;
+    position:fixed; top:0; left:0; right:0; z-index:60;
     background:var(--paper);
     border-bottom:2.5px solid var(--ink);
+    transition:top .3s ease;
   }
+  header.site-nav.is-hidden{
+    top: calc(-1 * var(--nav-h, 72px));
+  }
+  header.site-nav.open,
+  header.site-nav.open.is-hidden{
+    top:0;
+  }
+  .nav-spacer{ height:var(--nav-h, 72px); }
+  section[id]{ scroll-margin-top: var(--nav-h, 84px); }
   .nav-inner{
     display:flex; align-items:center; justify-content:space-between;
     padding:14px 24px;
@@ -266,7 +275,7 @@
 
   @media (max-width:880px){
     nav.primary-links{
-      position:fixed; inset:65px 0 0 0;
+      position:fixed; inset:var(--nav-h, 65px) 0 0 0;
       background:var(--paper);
       flex-direction:column;
       align-items:flex-start;
@@ -624,6 +633,7 @@
     </div>
   </div>
 </header>
+<div class="nav-spacer" aria-hidden="true"></div>
 
 <main>
 
@@ -809,6 +819,7 @@
   toggle.addEventListener('click', () => {
     const isOpen = nav.classList.toggle('open');
     toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    if (isOpen) nav.classList.remove('is-hidden');
   });
   document.querySelectorAll('#primaryNav a').forEach(a=>{
     a.addEventListener('click', ()=>{
@@ -817,6 +828,41 @@
     });
   });
 
+  // Hide nav on scroll down, show again on scroll up
+  const setNavHeight = () => {
+    document.documentElement.style.setProperty('--nav-h', nav.offsetHeight + 'px');
+  };
+  setNavHeight();
+  window.addEventListener('resize', setNavHeight);
+
+  let lastY = window.scrollY || 0;
+  let ticking = false;
+  const THRESHOLD = 8;
+
+  const updateNav = () => {
+    ticking = false;
+    const y = Math.max(0, window.scrollY || document.documentElement.scrollTop || 0);
+
+    if (nav.classList.contains('open') || y < 8) {
+      nav.classList.remove('is-hidden');
+      lastY = y;
+      return;
+    }
+
+    if (y > lastY + THRESHOLD) {
+      nav.classList.add('is-hidden');
+      lastY = y;
+    } else if (y < lastY - THRESHOLD) {
+      nav.classList.remove('is-hidden');
+      lastY = y;
+    }
+  };
+
+  window.addEventListener('scroll', () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(updateNav);
+  }, { passive: true });
 
 </script>
 
