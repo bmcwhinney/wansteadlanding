@@ -619,13 +619,25 @@
     grid-template-columns: 1fr 1fr;
     gap:36px;
   }
+  .contact-card > *{ min-width:0; }
   .contact-card h2{ font-size:clamp(1.6rem,3.6vw,2.6rem); }
   .contact-who{ font-weight:700; font-size:1.1rem; margin-top:18px; }
   .contact-role{ color:rgba(43,18,29,0.65); font-weight:600; margin-top:2px; }
   .contact-actions{
     margin-top:22px; display:flex; flex-direction:column; gap:12px; align-items:stretch;
   }
-  .contact-actions .btn{ width:100%; }
+  .contact-actions .btn{
+    width:100%;
+    min-width:0;
+    padding-left:16px;
+    padding-right:16px;
+  }
+  .contact-actions .btn span{
+    min-width:0;
+    overflow-wrap:anywhere;
+    word-break:break-word;
+    text-align:left;
+  }
   .contact-address{
     font-size:0.95rem; margin-top:20px; color:rgba(43,18,29,0.7); line-height:1.6;
   }
@@ -640,8 +652,12 @@
   .contact-side ul{ margin:14px 0 0; padding-left:20px; font-size:0.95rem; }
   .contact-side li + li{ margin-top:8px; }
   @media (max-width:760px){
-    .contact-card{ grid-template-columns:1fr; }
-    .contact-actions .btn{ width:auto; }
+    .contact-card{ grid-template-columns:1fr; min-width:0; }
+    .contact-actions .btn{
+      width:100%;
+      font-size:0.88rem;
+      padding:12px 14px;
+    }
   }
 
   /* ---------- FOOTER ---------- */
@@ -820,7 +836,7 @@
           <p class="contact-who">David Bishop</p>
           <p class="contact-role">Operations, Forest Circuit</p>
           <div class="contact-actions">
-            <a href="mailto:operations@forestcircuit.org.uk?subject=Hire%20enquiry%20-%20Wanstead%20Methodist%20Church" class="btn btn-solid"><svg viewBox="0 0 24 24" aria-hidden="true" width="22" height="22"><rect x="2.5" y="5" width="19" height="14" rx="2.2" stroke-width="2.4"/><path d="M3.5 7.2 12 13.2 20.5 7.2" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> operations@forestcircuit.org.uk</a>
+            <a href="mailto:operations@forestcircuit.org.uk?subject=Hire%20enquiry%20-%20Wanstead%20Methodist%20Church" class="btn btn-solid"><svg viewBox="0 0 24 24" aria-hidden="true" width="22" height="22"><rect x="2.5" y="5" width="19" height="14" rx="2.2" stroke-width="2.4"/><path d="M3.5 7.2 12 13.2 20.5 7.2" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>operations@forestcircuit.org.uk</span></a>
             <a href="tel:+447458002275" class="btn btn-outline">☎ +44 7458 002275</a>
           </div>
           <p class="contact-address">Wanstead Methodist Church<br>Hermon Hill, Wanstead<br>London E11 2AR</p>
